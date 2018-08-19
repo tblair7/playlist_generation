@@ -36,4 +36,11 @@ fileDetails.audioStreams[].bitrateBps - audio bitrate
 fileDetails.audioStreams[].channelCount - number of audio channels
 
 ~12am
-I spent a while trying to figure out what exactly was going on in some of the examples for YT data mining, though I think that was in part because the sources were outdated. I found a part of someone's Jupyter notebook that helped me figure out how to deal with the output data because it's in a json format, which I've never worked with. Still, I think I've got it figured out enough to start working with it properly. (http://nbviewer.jupyter.org/github/twistedhardware/mltutorial/blob/master/notebooks/data-mining/2.%20YouTube%20Data.ipynb). I think this is a good place to stop for the night, seeing as I know that I won't stop once I hit that next breakthrough.
+I spent a while trying to figure out what exactly was going on in some of the examples for YT data mining, though I think that was in part because the sources were outdated. I found a part of someone's Jupyter notebook that helped me figure out how to deal with the output data because it's in a json format, which I've never worked with. Still, I think I've got it figured out enough to start working with it properly. (http://nbviewer.jupyter.org/github/twistedhardware/mltutorial/blob/master/notebooks/data-mining/2.%20YouTube%20Data.ipynb). I think this is a good place to stop for the night, seeing as I know that I won't stop once I hit that next breakthrough
+
+August 19, 2018
+
+11am
+I eventually wish to analyze the waveforms of these songs so that I can extract trends in frequency space, but I think there will be a few hurdles along the way.
+1. While I have the .mp3 files, the meta data associated with said files does not include the video ID, so I won't be able to easily match the track to its metadata entry, though it should be possible because I have -some- metadata alongside the .mp3 files.
+2. I need to find a good package to work with the waveforms. I don't know exactly how these data will look, so this won't be able to be addressed fully until later..
