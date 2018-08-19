@@ -9,3 +9,4 @@ So, the intent of this project is to analyze my music over the years. The types 
 
 8pm
 Turns out YouTube has a nice, downloadable API to grab these data. Excitingly, these metadata include what day I added each song to my playlist. I can finally prove that I found particular songs and artists before they got big, hah!. Now I need to figure out all of the different data forms I am able to pull- total views, likes/dislikes, date uploaded, date I liked (hopefully number of views at the date that I added the song too), genres, etc.
+I had never used GitHub before, so I figured this was the time to do it. I set up a SSH key so that I can work in my music_taste directory and commit changes to GitHub via the command line.
