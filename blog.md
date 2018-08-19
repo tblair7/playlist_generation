@@ -57,3 +57,10 @@ The naming structure for the different parameters I wish to retrieve from YT too
 e.g.,
 params = ('id, contentDetails, statistics') # this is viable
 params = ('id, contentDetails.duration, statistics.viewCount') # this is not viable
+
+
+##### 2pm
+Good progress has been made! I've made a gen_params() function that will allow me to generate the necessary structures for the API requests, regardless of what kind of request I wish to make. It also has the ability to request any number of valid data forms that particular API allows.
+
+##### 3pm
+So that I can start pushing my progress in Python to my GitHub, I need to set an environment variable of my own API key so that it's not able to be publicly viewed. It took longer than it should have because I was trying to set the environment variable via Ubuntu then access it via Python. Once I set it via Python, it was easy enough.
