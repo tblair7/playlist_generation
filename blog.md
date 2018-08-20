@@ -79,7 +79,7 @@ I've taken the time to create a few functions to increase the efficiency of usin
 ##### still 5pm
 As it turns out, the thumbnails all have an extremely consistent format, which I'd be able to call later, so I'm not even going to bother with that at this point. https://i.ytimg.com/vi/EoaPhxNubL0/maxresdefault.jpg where maxresdefault lowers the quality step-wise (maxres,sd,hq,mq,default).
 Also, because the conversion from json into a dataframe loses some of the higher-order attributes- thumbnails.maxres.url becomes url, alongside the other thumbnail urls- I'll have to call things more generically (and easily). Because the data I am interested in are unique in their titles and won't experience redundancy, I am not going to change the json -> dataframe conversion.
-Data that I'll pull to use at this point: 'videoID', 'videoPublishedAt', 'title'
+Data that I'll pull to use at this point: 'videoID', 'videoPublishedAt', 'publishedAt', 'title'
 Data that I expect to pull from videos: 'videoID', 'channelId', 'views', 'likes', 'dislikes', 'channelSubscribers', waveform channels if it's possible
 
 ##### 530pm
@@ -88,3 +88,9 @@ I'm approaching 13 hours out of the past 24 that I've worked on this project and
 2. I need to get PyCharm back for its autofill features on packages like numpy, scipy, etc.
 3. I'm curious just how many keystrokes I've made in the past 24 hours.
 4. I need to parse the title into artist and song before I put it into the playlist dataframe. Selecting characters prior to the '-' ordinarily gives the artist and what's left is the song name but it isn't 100% consistent, especially in older videos. Still, I think that approach is a good place to start.
+
+##### 8pm
+videoID is apparently not as unique as I had once thought. When attempting to truncate the data table to include my four data forms, I discovered that there are four instances of videoId. I need to use a unique call to eliminate the redundant ones.
+
+##### 9pm
+I was confused for a few minutes there because YT was saying that I exceeded my number of allowed requests, when I knew very well that I shouldn't have. Apparently I had been doing a lot of my work in the notebook that wasn't actually authenticated by my api_key, which was an environment variable for my other notebook...? Perhaps I didn't actually set it as an environment variable- either that or the environment variable didn't make its way to the other notebook because that notebook was already open and running when I attempted to set the variable.

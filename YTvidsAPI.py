@@ -28,7 +28,6 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 ##### you can simply set it explicitly here: api_key = {'your key'}    ######
 api_key = os.environ.get('YOUTUBE_API_KEY')
 
-
 ################### only parameters you should need to set ###################
 # documentation of parameters you are able to use for playlistItems
 # https://developers.google.com/youtube/v3/docs/playlistItems#properties
@@ -37,15 +36,18 @@ api_type = 'playlistItems' # e.g., videos, playlistItems, search as a string
 api_params = 'snippet, contentDetails' # e.g., 'id, contentDetails, statistics' as a string
 id = 'PLJpYtEF3No5PLMd9Z2dPtUm4CYH5xWR1y' # ID of the whatever api type you're utilizing
 
-maxResults = 2 # 0-250, though I've set 0 to mean no maximum so I can use it for my playlist
+maxResults = 8 # 0-250, though I've set 0 to mean no maximum so I can use it for my playlist
 
 ## parameters I wish to retrieve from my playlist in the end ##
 #params_videos = "id, contentDetails, statistics"
-#params_playlist = "snippet,contentDetails" # playlist ID needed?
+
+# these will be the column headers that I select from the playlistItems df
+params_playlist = 'videoId', 'videoPublishedAt', 'publishedAt', 'title'
+params_playlist_rename = 'ID', 'Date Uploaded', 'Date Found', 'Title'
 
 ##############################################################################
 
-
+# This may be changed later once I decide if I really want to just make the playlist workup linear
 if api_type == 'playlistItems':
     parameters = {"part": api_params,
                   "playlistId": id,
@@ -64,20 +66,14 @@ else:
 url_base = "https://www.googleapis.com/youtube/v3/"
 url = url_base + api_type
 
+# pulls the data from YT and puts it in a usable format
 page = requests.get(url = url,
-                    params = parameters)
-
-#page_playlist = requests.request(method = "get",
-#                                 url = url_videos,
-#                                 params=parameters_playlist) # if I change how I handle multiple requests
-
-j_results = json.loads(page.text)
-
-########## if you wish to visualize what data was actually retrieved ##########
-#print (page.text)
-
-
-df = pd.io.json.json_normalize(j_results['items'])
+                    params = parameters) # pull
+j_results = json.loads(page.text) # make somewhat readable
+df = pd.io.json.json_normalize(j_results['items']) # formatted table, lots of redundant info
 df.columns = df.columns.map(lambda x: x.split('.')[-1])
 
-# data_save = continue working here after dinner
+# truncates the data based on the params_playlist input from the beginning
+data_playlist = df.loc[:, df.columns.isin(list(params_playlist))]
+data_playlist = data_playlist.T.drop_duplicates(keep='first').T # drop_duplicates works on rows, so transpose, select row, transpose back
+data_playlist.columns = list(params_playlist_rename) # assigns column names
