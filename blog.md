@@ -94,3 +94,9 @@ videoID is apparently not as unique as I had once thought. When attempting to tr
 
 ##### 9pm
 I was confused for a few minutes there because YT was saying that I exceeded my number of allowed requests, when I knew very well that I shouldn't have. Apparently I had been doing a lot of my work in the notebook that wasn't actually authenticated by my api_key, which was an environment variable for my other notebook...? Perhaps I didn't actually set it as an environment variable- either that or the environment variable didn't make its way to the other notebook because that notebook was already open and running when I attempted to set the variable.
+
+
+##### 11pm
+I'm working on creating functions for the API requests (again) so that it doesn't need to be written multiple times in my code. For tomorrow, I need to finish that, determine how best to create a dataframe from the videoIds that I'll iterate through. Ideally, it'll just add a row for each video item. I'd like to simply iterate through the data_playlist.ID values, so that's where I'll start tomorrow.
+
+Overall, I think this is fantastic progress for just over a day of working on the project. Soon enough I'll have a ton of data to work with that's all my own!
