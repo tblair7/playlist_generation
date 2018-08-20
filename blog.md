@@ -67,10 +67,24 @@ So that I can start pushing my progress in Python to my GitHub, I need to set an
 
 ##### 4pm
 Turns out the playlist API, despite saying that it can recognize id or playlistId, it really can only do the latter. I'm really starting to get excited about what the data will look like and what all I'll be able to do with it. The plot that's currently on my mind is how much quicker I find music nowadays, i.e., how long it takes me to add a song to a playlist vs. when it was uploaded and how that trend has changed over time. The relevant code for that will end up being built off of this line:
-df.loc[:,['videoPublishedAt', 'publishedAt']]
+df.loc[:,['videoPublishedAt', 'publishedAt']
+A useful resource in working with the json output format was https://stackoverflow.com/questions/34341974/nested-json-to-pandas-dataframe-with-specific-format
 
 ##### 5pm
 I've taken the time to create a few functions to increase the efficiency of using this tool down the road. Now I need to figure out how I'm going to approach the problem of having all of the playlist items and their IDs but none of the meaningful video information. My current thoughts on the approach is this:
 1. Much of the data that I'm pulling from the playlistItems API is really not useful to me. I should get rid of it before moving onto the video API. Still, I think some of it might be cool to use in the future, so I won't get rid of it all.
 2. Because the playlistItems API gives me the ID for each video, if I iterate through these values and either create a new table to append at the end or just add the data outright, I should be pretty well off. I'm thinking I should create a new table so that it's easier to work with, especially seeing as I'll likely dump some of the data forms.
 3. Items that I expect to keep at this point are, from playlistItems: id, snippet.publishedAt, snippet.channelId, snippet.title, snippet. thumbnails.maxres.url (need to check this one), contentDetails.videoId, contentDetails.videoPublishedAt
+
+##### still 5pm
+As it turns out, the thumbnails all have an extremely consistent format, which I'd be able to call later, so I'm not even going to bother with that at this point. https://i.ytimg.com/vi/EoaPhxNubL0/maxresdefault.jpg where maxresdefault lowers the quality step-wise (maxres,sd,hq,mq,default).
+Also, because the conversion from json into a dataframe loses some of the higher-order attributes- thumbnails.maxres.url becomes url, alongside the other thumbnail urls- I'll have to call things more generically (and easily). Because the data I am interested in are unique in their titles and won't experience redundancy, I am not going to change the json -> dataframe conversion.
+Data that I'll pull to use at this point: 'videoID', 'videoPublishedAt', 'title'
+Data that I expect to pull from videos: 'videoID', 'channelId', 'views', 'likes', 'dislikes', 'channelSubscribers', waveform channels if it's possible
+
+##### 530pm
+I'm approaching 13 hours out of the past 24 that I've worked on this project and I'd like to summarize a few of my thoughts so far.
+1. The number of areas that I've had to delve into has been awesome. I've learned so much already, and I'm just now getting started!
+2. I need to get PyCharm back for its autofill features on packages like numpy, scipy, etc.
+3. I'm curious just how many keystrokes I've made in the past 24 hours.
+4. I need to parse the title into artist and song before I put it into the playlist dataframe. Selecting characters prior to the '-' ordinarily gives the artist and what's left is the song name but it isn't 100% consistent, especially in older videos. Still, I think that approach is a good place to start.
