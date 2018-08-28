@@ -100,3 +100,13 @@ I was confused for a few minutes there because YT was saying that I exceeded my 
 I'm working on creating functions for the API requests (again) so that it doesn't need to be written multiple times in my code. For tomorrow, I need to finish that, determine how best to create a dataframe from the videoIds that I'll iterate through. Ideally, it'll just add a row for each video item. I'd like to simply iterate through the data_playlist.ID values, so that's where I'll start tomorrow.
 
 Overall, I think this is fantastic progress for just over a day of working on the project. Soon enough I'll have a ton of data to work with that's all my own!
+
+### August 26, 2018
+
+##### Aftermath
+Today I made a lot of progress, particularly in cleaning up the data. Where previously the dates and column names weren't very clean, I've parsed them to be more meaningful and so that I can actually work with them! Some of the dates were in nasty formats like "2010-12-14T13:29:24.000Z". I decided to convert the length of songs into seconds, though maybe I didn't need to. I also made discoveryTime in days because I don't care about that precise of a measurement for that data form.
+
+Still, I think I'm done with the initial data structure setup unless I want to attempt to draw artist and song names from the title. The current data structure is as follows:
+id, title, channelID, views, likes, dislikes, duration_secs, dateUploaded, dateFound, discoveryTime_days
+
+I may see if I'm able to use the channelID to extract the channel name. There are a number of uploaders I'd like to track my listening tendencies over the years. I could certainly hard code channelIDs and their channel names but that's no fun and not the point of this project. I'll leave that bit until a later time though, because I want to start plotting things and also looking into the actual music files. I need to find a good Python package to help me with this.
