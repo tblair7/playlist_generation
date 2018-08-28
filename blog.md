@@ -115,6 +115,6 @@ I may see if I'm able to use the channelID to extract the channel name. There ar
 
 Two days after the fact, I realized that none of my pushes made it to GitHub. Additionally, I couldn't find the files that I had worked on and was worried that I had lost my work. However, it turns out that the branch and files were still there on my local repository but were hidden. After a bit of trouble shooting, I fixed the issue by merging my working branch, Aug26, with the master then pushing to GitHub from there. Note that the changes were already committed from the other day.
 
-git checkout master
-git merge Aug26
-git push
+git checkout master\n
+git merge Aug26\n
+git push\n
