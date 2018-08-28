@@ -110,3 +110,11 @@ Still, I think I'm done with the initial data structure setup unless I want to a
 id, title, channelID, views, likes, dislikes, duration_secs, dateUploaded, dateFound, discoveryTime_days
 
 I may see if I'm able to use the channelID to extract the channel name. There are a number of uploaders I'd like to track my listening tendencies over the years. I could certainly hard code channelIDs and their channel names but that's no fun and not the point of this project. I'll leave that bit until a later time though, because I want to start plotting things and also looking into the actual music files. I need to find a good Python package to help me with this.
+
+### August 28, 2018
+
+Two days after the fact, I realized that none of my pushes made it to GitHub. Additionally, I couldn't find the files that I had worked on and was worried that I had lost my work. However, it turns out that the branch and files were still there on my local repository but were hidden. After a bit of trouble shooting, I fixed the issue by merging my working branch, Aug26, with the master then pushing to GitHub from there. Note that the changes were already committed from the other day.
+
+git checkout master
+git merge Aug26
+git push
