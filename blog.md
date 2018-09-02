@@ -115,6 +115,9 @@ I may see if I'm able to use the channelID to extract the channel name. There ar
 
 Two days after the fact, I realized that none of my pushes made it to GitHub. Additionally, I couldn't find the files that I had worked on and was worried that I had lost my work. However, it turns out that the branch and files were still there on my local repository but were hidden. After a bit of trouble shooting, I fixed the issue by merging my working branch, Aug26, with the master then pushing to GitHub from there. Note that the changes were already committed from the other day.
 
-git checkout master	
+git checkout master
 git merge Aug26
 git push
+
+### August 30, 2018
+Had to go back over much of my script because the YT APIs only retrieve a handful of results at a time, which makes sense. Now I need to iterate through while defining a "nextToken" to grab the next page of results, all while truncating the data and appending it to the full set. Need to assign a catch for the end- NameError?
