@@ -121,3 +121,5 @@ git push
 
 ### August 30, 2018
 Had to go back over much of my script because the YT APIs only retrieve a handful of results at a time, which makes sense. Now I need to iterate through while defining a "nextToken" to grab the next page of results, all while truncating the data and appending it to the full set. Need to assign a catch for the end- NameError?
+
+I should try to align my taste of music with big events in my life- did I prefer songs with lower frequencies when I was sad or during the winter? Did I prefer more upbeat songs during the summer?
