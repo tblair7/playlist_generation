@@ -123,3 +123,7 @@ git push
 Had to go back over much of my script because the YT APIs only retrieve a handful of results at a time, which makes sense. Now I need to iterate through while defining a "nextToken" to grab the next page of results, all while truncating the data and appending it to the full set. Need to assign a catch for the end- NameError?
 
 I should try to align my taste of music with big events in my life- did I prefer songs with lower frequencies when I was sad or during the winter? Did I prefer more upbeat songs during the summer?
+
+### September 6, 2018
+
+Because my playlist is so long and old, there are a number of corner cases that have arisen, such as the upload now being private, being flagged for spam, or being deleted all together. These corner cases are caught during different API calls and variable calls/reassignments. The df.append() function has an update soon that requires the parameters (sort = False) to work with the current version of this Notebook. The df.dropna(how = 'any') function did not drop all rows containing any NaN values, and I'm still not sure why it isn't, so I moved the drop rows call elsewhere and it works now. pyaudio was a suggested library to use for the waveform files.
