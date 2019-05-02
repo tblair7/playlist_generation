@@ -1,6 +1,9 @@
 # Music Taste
-#### Author  
-#### [Tyler Blair](https://www.linkedin.com/in/tylerjblair)
+#### Author: [Tyler Blair](https://www.linkedin.com/in/tylerjblair)  
+
+
+*I have hosted this project with slight variations on my [personal website](tylerblair.net/PlaylistGeneration) hosted on AWS if you would a demonstration or would like to create your own playlist!* 
+
 ----
 #### [Personalized Playlist Generation](http://tylerblair.net/PlaylistGeneration)  
 __Description:__  
