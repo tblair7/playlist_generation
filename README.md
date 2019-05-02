@@ -1,32 +1,29 @@
 # Music Taste
 #### Author  
-#### [Tyler Blair](https://github.com/tblair7)
+#### [Tyler Blair](https://www.linkedin.com/in/tylerjblair)
 ----
-#### About
-Music is an integral part of my life. To put my music finding and listening tendencies into perspective: In a matter of eight years, I reached the maximum capacity of YouTube's playlist system (5000 entries), which I didn't even know existed. Eight years of finding nearly two songs per day **on average**. Instead of examining a well laid out problem, I sought to look at something closer and more important to me, while also fostering experience in different data analysis techniques.
+#### [Personalized Playlist Generation](http://tylerblair.net/PlaylistGeneration)  
+__Description:__  
+With a music library of over 5,000 songs, making playlists was extremely time consuming, so I often forewent the task. Realizing that I could take a data-driven approach to this problem, I created a dynamic way of making new playlists on the fly based on a song's audio features.
 
+First, I extracted 38 features from the raw audio waveform of each song in my musical library. Next, I needed a dynamic way to select a song from my library, especially if I couldn't quite remember the exact title/artist name. I decided to place all of my song artist/titles in a SQL database at which point I could use a loosely fitted query to help me find the song I was thinking of.  
 
+E.g., if I knew the song I wanted was by John Mayer, I could input 'Mayer', which would find the song's ID via a loose query:  
+ `"SELECT ID FROM songs WHERE title LIKE %mayer%"`
 
-Initially, I thought it would be cool to analyze things like how frequently I find new music during certain times of year and think about why that might be, e.g., do I tend to find more music during the winter when I'm indoors more often due to the cold and rainy winter here in Seattle? Also, I thought to examine how different types of music persist through seasons, i.e., do the frequency components of the music I listen to correspond to each season? The number of questions I could address really bloomed once I had a better sense of what data I was working with.
+By selecting the song I desired from the results, my pipeline then uses a k-Nearest Neighbors (kNN) to find the songs with audio characteristics most similar to the selected song. In this web-hosted version of this project, a new YouTube playlist is finally created so you can listen to your new playlist! However, when run locally (separate repository), copies of these songs are moved to a new directory such that they can be listened to with your media player of choice.
 
-My ultimate goal for this project is to be able to create playlists similar to a song I am currently enjoying. By analyzing the waveforms of songs, I am able to extract a number of audio features and find any number of its nearest neighbors to create any playlist on the fly.
+__Skills/Tools:__  
+_Python, AWS, Natural Language Processing (NLP), Scikit-learn (sklearn), Flask, SQL (sqlite3), Natural Language Toolkit (NLTK), [Steam API](https://steamcommunity.com/dev)_  
+
 
  ----
 
-##### Python Packages Utilized
-- os
-- numpy
-- pandas
-- datetime
-- requests
-- json
-- re
+##### Additional requirements
+
 - [google.oauth2.credentials](https://developers.google.com/youtube/registering_an_application)
 - [pyAudioAnalysis](https://github.com/tyiannak/pyAudioAnalysis "GitHub Repository")
-- scikit-learn
-- shutil
-- pickle
-- matplotlib
+
 
 
 ##### Set api_key variable
@@ -34,7 +31,7 @@ import os
 os.environ['YT_API_key'] = '*your_API_key*'
 
 ----
-##### Some questions I seek to examine:
+##### Some questions I also sought to examine:
 - Do my music finding tendencies correlate with time of year?
   - Yes, though they're more dependent on what my work load is like.
 - Does the type of music I find correlate with the time of year too?
